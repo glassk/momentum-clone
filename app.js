@@ -1,11 +1,18 @@
-const dayOfWeek = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+const player = {
+  name: 'nico',
+  points: 10,
+  fat: true,
+};
 
-console.log(dayOfWeek[4]); // fri
+console.log(player); // {name: 'nico', points: 10, fat: true}
+console.log(player.name); // nico
+console.log(player['name']); // nico
 
-// Get Item from Array
-console.log(dayOfWeek); // (6) ['mon', 'tue', 'wed', 'thu', 'fri', 'sat']
+player.fat = false;
+console.log(player); // {name: 'nico', points: 10, fat: false}
 
-// Add one more day to the array
-dayOfWeek.push('sun');
+player.lastName = 'potato';
+console.log(player); // {name: 'nico', points: 10, fat: false, lastName: 'potato'}
 
-console.log(dayOfWeek); // (7) ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
+player.points = player.points + 15;
+console.log(player); //{name: 'nico', points: 25, fat: false, lastName: 'potato'}
