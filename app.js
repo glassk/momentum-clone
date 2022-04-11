@@ -1,12 +1,5 @@
-const a = 5;
-const b = 2;
-let myName = 'nico';
+// const amIFat = true;
+const amIFat = null;
+let something;
 
-console.log(a + b);
-console.log(a * b);
-console.log(a / b);
-console.log('hello' + ' nico');
-
-myName = 'nicolas';
-
-console.log('your new name is ' + myName);
+console.log(something, amIFat); // undefined null
