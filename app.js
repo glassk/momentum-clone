@@ -21,8 +21,8 @@ const calculator = {
 const plusResult = calculator.plus(2, 3); // 5
 const minusResult = calculator.minus(plusResult, 10); // -5
 const timesResult = calculator.times(10, minusResult); // -50
-const divideResult = calculator.divide(timesResult, plusResult); // -45
-const powerResult = calculator.power(divideResult, minusResult); //
+const divideResult = calculator.divide(timesResult, plusResult); // -10
+const powerResult = calculator.power(divideResult, minusResult); // -0.000009999999999999999
 
 // Example #2
 const age = 96;
@@ -32,4 +32,4 @@ function calculateKrAge(ageOfForeigner) {
 
 const krAge = calculateKrAge(age);
 
-// console.log(krAge); // 98
+console.log(krAge); // 98
