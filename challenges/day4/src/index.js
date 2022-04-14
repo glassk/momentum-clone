@@ -13,29 +13,28 @@ const colors = ['#1abc9c', '#3498db', '#9b59b6', '#f39c12', '#e74c3c'];
 ✅ ALL function handlers should be INSIDE of "superEventHandler"
 */
 
-const title = document.querySelector('h2');
+const h2 = document.querySelector('h2');
 
 const superEventHandler = {
-  handleTitleMouseEnter: function () {
-    title.innerText = 'The mouse is here!';
-    title.style.color = colors[0];
+  handleEnter: function () {
+    h2.innerText = 'The mouse is here!';
+    h2.style.color = colors[0];
   },
-  handleTitleMouseLeave: function () {
-    title.innerText = 'The mouse is gone!';
-    title.style.color = colors[1];
+  handleLeave: function () {
+    h2.innerText = 'The mouse is gone!';
+    h2.style.color = colors[1];
   },
-  handleWindowResize: function () {
-    title.innerText = 'You just resized!';
-    title.style.color = colors[2];
+  handleResize: function () {
+    h2.innerText = 'You just resized!';
+    h2.style.color = colors[2];
   },
-  handleRightClick: function () {
-    title.innerText = 'That was a right click!';
-    title.style.color = colors[3];
+  handleContext: function () {
+    h2.innerText = 'That was a right click!';
+    h2.style.color = colors[3];
   },
 };
 
-title.addEventListener('mouseenter', superEventHandler.handleTitleMouseEnter);
-title.addEventListener('mouseleave', superEventHandler.handleTitleMouseLeave);
-
-window.addEventListener('resize', superEventHandler.handleWindowResize);
-window.addEventListener('contextmenu', superEventHandler.handleRightClick);
+h2.addEventListener('mouseenter', superEventHandler.handleEnter);
+h2.addEventListener('mouseleave', superEventHandler.handleLeave);
+window.addEventListener('resize', superEventHandler.handleResize);
+window.addEventListener('contextmenu', superEventHandler.handleContext);
