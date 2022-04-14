@@ -1,35 +1,20 @@
-// Example #1
-const calculator = {
-  plus: function (a, b) {
-    return a + b;
-  },
-  minus: function (a, b) {
-    return a - b;
-  },
-  times: function (a, b) {
-    return a * b;
-  },
-  divide: function (a, b) {
-    return a / b;
-  },
-  power: function (a, b) {
-    return a ** b;
-  },
-};
+const age = parseInt(prompt('How old are you?'));
 
-// 상호의존적(서로 연결됨)
-const plusResult = calculator.plus(2, 3); // 5
-const minusResult = calculator.minus(plusResult, 10); // -5
-const timesResult = calculator.times(10, minusResult); // -50
-const divideResult = calculator.divide(timesResult, plusResult); // -10
-const powerResult = calculator.power(divideResult, minusResult); // -0.000009999999999999999
+console.log(age, parseInt(age));
+console.log(typeof '15', typeof parseInt('15')); // string number
 
-// Example #2
-const age = 96;
-function calculateKrAge(ageOfForeigner) {
-  return ageOfForeigner + 2;
+console.log(isNaN(age));
+
+if (isNaN(age) || age < 0) {
+  console.log('Please write a real positive number');
+} else if (age < 18) {
+  console.log('You are too young.');
+} else if (age >= 18 && age <= 50) {
+  console.log('You can drink');
+} else if (age > 50 && age <= 80) {
+  console.log('You should exercise');
+} else if (age === 100) {
+  console.log('wow you are wise');
+} else if (age > 80) {
+  console.log('You can do whatever you want.');
 }
-
-const krAge = calculateKrAge(age);
-
-console.log(krAge); // 98
