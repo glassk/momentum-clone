@@ -1,44 +1,35 @@
-const h1 = document.querySelector('.hello h1');
-
-console.dir(h1);
+const h1 = document.querySelector('div.hello:first-child h1');
 
 function handleTitleClick() {
-  h1.style.color = 'blue';
-  console.log('h1 was clicked!');
-}
+  // Example #1
+  const currentColor = h1.style.color;
+  let newColor;
 
-function handleMouseEnter() {
-  h1.innerText = 'Mouse is here!';
-}
+  if (currentColor === 'blue') {
+    newColor = 'tomato';
+  } else {
+    newColor = 'blue';
+  }
 
-function handleMouseLeave() {
-  h1.innerText = 'Mouse is gone!';
-}
+  h1.style.color = newColor;
 
-function handleWindowResize() {
-  document.body.style.backgroundColor = 'tomato';
-}
+  // Example #2
+  const clickedClass = 'clicked';
+  if (h1.className === clickedClass) {
+    h1.className = '';
+  } else {
+    h1.className = clickedClass;
+  }
 
-function handleWindowCopy() {
-  alert('copier!');
-}
+  // Example #3
+  if (h1.classList.contains(clickedClass)) {
+    h1.classList.remove(clickedClass);
+  } else {
+    h1.classList.add(clickedClass);
+  }
 
-function handleWindowOffline() {
-  alert('SOS no WIFI');
-}
-
-function handleWindowOnline() {
-  alert('ALL GOOOD');
+  // Example #4
+  h1.classList.toggle('clicked');
 }
 
 h1.addEventListener('click', handleTitleClick);
-// h1.onclick = handleTitleClick;
-h1.addEventListener('mouseenter', handleMouseEnter);
-// h1.onmouseenter = handleMouseEnter;
-h1.addEventListener('mouseleave', handleMouseLeave);
-// h1.onmouseleave = handleMouseLeave;
-
-window.addEventListener('resize', handleWindowResize);
-window.addEventListener('copy', handleWindowCopy);
-window.addEventListener('offline', handleWindowOffline);
-window.addEventListener('online', handleWindowOnline);
