@@ -1,15 +1,20 @@
 body {
-  background-color: #9b59b6;
+  font-family: sans-serif;
+  display: flex;
 }
 
 h2 {
   color: white;
 }
 
-.widen {
+.wideScreen {
   background-color: #f39c12;
 }
 
-.narrow {
+.mediumScreen {
+  background-color: #9b59b6;
+}
+
+.narrowScreen {
   background-color: #3498db;
 }

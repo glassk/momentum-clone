@@ -1,20 +1,25 @@
 import './styles.css';
 
-const body = document.querySelector('body');
+const body = document.body;
+
+const WIDE_SCREEN = 'wideScreen';
+const MEDIUM_SCREEN = 'mediumScreen';
+const NARROW_SCREEN = 'narrowScreen';
 
 function handleResize() {
-  const narrowClass = 'narrow';
-  const widenClass = 'widen';
-  const currentWidth = window.innerWidth;
+  const width = window.innerWidth;
 
-  if (currentWidth < 760) {
-    body.classList.add(narrowClass);
-  } else if (currentWidth > 1260) {
-    body.classList.add(widenClass);
+  if (width > 1000) {
+    body.classList.add(WIDE_SCREEN);
+    body.classList.remove(MEDIUM_SCREEN);
+  } else if (width <= 1000 && width >= 700) {
+    body.classList.add(MEDIUM_SCREEN);
+    body.classList.remove(WIDE_SCREEN, NARROW_SCREEN);
   } else {
-    body.classList.remove(narrowClass);
-    body.classList.remove(widenClass);
+    body.classList.add(NARROW_SCREEN);
+    body.classList.remove(MEDIUM_SCREEN);
   }
 }
 
+handleResize();
 window.addEventListener('resize', handleResize);
