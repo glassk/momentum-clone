@@ -1,18 +1,19 @@
 const gameForm = document.querySelector('#game-form');
-const limitInput = document.querySelector('#limit-input');
-const guessInput = document.querySelector('#guess-input');
-const numResult = document.querySelector('#num-result');
-const finalResult = document.querySelector('#final-result');
+const maxNum = document.querySelector('#maxNumber');
+const result = document.querySelector('#result');
+const guessInput = gameForm.querySelector('#guess-input');
 
 function onGameSubmit(event) {
   event.preventDefault();
 
-  const limitNum = parseInt(limitInput.value, 10);
+  const max = parseInt(maxNum.value, 10);
   const guessNum = parseInt(guessInput.value, 10);
-  const randomNum = Math.ceil(Math.random() * limitNum);
+  const randomNum = Math.ceil(Math.random() * max);
 
-  numResult.innerHTML = `You chose: ${guessNum}, the machine chose: ${randomNum}.`;
-  finalResult.innerHTML = `You ${guessNum === randomNum ? 'won' : 'lost'}!`;
+  result.innerHTML = `
+    You chose: ${guessNum}, 
+    the machine chose: ${randomNum}.<br />
+    <b>${guessNum === randomNum ? 'You won!' : 'You lost!'}</b>`;
 }
 
 gameForm.addEventListener('submit', onGameSubmit);
