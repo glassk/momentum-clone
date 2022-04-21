@@ -1,20 +1,28 @@
 const clockTitle = document.querySelector('.js-clock');
-const dDay = new Date(new Date().getFullYear(), 11, 25).getTime();
 
 function getClock() {
-  const today = new Date().getTime();
-  const gap = dDay - today;
+  const xmasDay = new Date(`${new Date().getFullYear()}-12-25:00:00:00+0900`);
+  const now = new Date();
 
-  const day = Math.ceil(gap / (1000 * 60 * 60 * 24));
-  const hour = String(
-    Math.ceil((gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-  ).padStart(2, '0');
-  const min = String(
-    Math.ceil((gap % (1000 * 60 * 60)) / (1000 * 60))
-  ).padStart(2, '0');
-  const sec = String(Math.ceil((gap % (1000 * 60)) / 1000)).padStart(2, '0');
+  const diff = new Date(xmasDay - now);
 
-  clockTitle.innerText = `${day}d ${hour}h ${min}m ${sec}s`;
+  // 소수점 없애기 위해 Math.floor 사용
+  const secondsInMs = Math.floor(diff / 1000); // 1초(1000ms) 단위의 diff를 1000으로 나눠서 저장
+  const minutesInMs = Math.floor(secondsInMs / 60); // 1분은 60초
+  const hoursInMs = Math.floor(minutesInMs / 60); // 1시간은 60분
+  const days = Math.floor(hoursInMs / 24); // 하루는 24시간
+
+  // 남은 일, 시, 분, 초를 구하기 위해 각 단위에 맞게 나눔
+  const seconds = secondsInMs % 60;
+  const minutes = minutesInMs % 60;
+  const hours = hoursInMs % 24;
+
+  const daysStr = String(days).padStart() + 'd';
+  const hoursStr = String(hours).padStart() + 'h';
+  const minutesStr = String(minutes).padStart() + 'm';
+  const secondsStr = String(seconds).padStart() + 's';
+
+  clockTitle.innerText = `${daysStr} ${hoursStr} ${minutesStr} ${secondsStr}`;
 }
 
 getClock();
