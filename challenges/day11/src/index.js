@@ -22,23 +22,13 @@ const colors = [
 const button = document.querySelector('button');
 
 function handleBtnClick() {
-  const [num1, num2] = getRandomNums();
-  document.body.style = `background: linear-gradient(to right, ${colors[num1]}, ${colors[num2]})`;
-}
-
-function getRandomNums() {
   const maxNum = colors.length;
-  const result = [Math.floor(Math.random() * maxNum)];
-
-  while (true) {
-    const randomNum = Math.floor(Math.random() * maxNum);
-    if (randomNum !== result[0]) {
-      result.push(randomNum);
-      break;
-    }
+  const a = colors[Math.floor(Math.random() * maxNum)];
+  const b = colors[Math.floor(Math.random() * maxNum)];
+  if (a === b) {
+    return handleBtnClick();
   }
-
-  return result;
+  document.body.style.background = `linear-gradient(to right, ${a}, ${b})`;
 }
 
 button.addEventListener('click', handleBtnClick);
