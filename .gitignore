@@ -4,6 +4,3 @@
 # parcel
 */*/.cache
 */*/dist
-
-# environment variables
-js/env.js
