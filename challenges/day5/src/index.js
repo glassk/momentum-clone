@@ -1,5 +1,3 @@
-import './styles.css';
-
 const body = document.body;
 
 const WIDE_SCREEN = 'wideScreen';

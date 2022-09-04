@@ -1,6 +1,7 @@
 # npm
-*/*/node_modules
+node_modules
 
 # parcel
-*/*/.cache
-*/*/dist
+.cache
+dist
+.parcel-cache
